@@ -28,7 +28,7 @@ public class Program {
         int i = 1;
         while (i < distinct) {
             int j = i;
-            while (j > 0 && occur[j - 1] < occur[j]) {
+            while (j > 0 && (occur[j - 1] < occur[j] || (occur[j - 1] == occur[j]) && (chars[j - 1] > chars[j] ))) {
                 int tmp = occur[j];
                 occur[j] = occur[j - 1];
                 occur[j - 1] = tmp;
@@ -41,12 +41,12 @@ public class Program {
         }
 
         int chart[] = new int[10];
-        for (int k = 0; k < 10; k++) {
+        for (int k = 0; k < 10 && k < distinct; k++) {
             chart[k] = occur[k] * 10 / occur[0];
         }
 
         for(int k = 10; k >= 0; k--) {
-            for (int m = 0; m < 10; m++) {
+            for (int m = 0; m < 10 && m < distinct; m++) {
                 if (chart[m] == k)
                     System.out.print("" + occur[m] + " ");
                 if (chart[m] > k)
@@ -54,7 +54,7 @@ public class Program {
             }
                System.out.println();
         }
-        for (int k = 0; k < 10; k++) {
+        for (int k = 0; k < 10 && k < distinct; k++) {
             System.out.print("" + chars[k] + " ");
         }
         System.out.println();

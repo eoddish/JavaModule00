@@ -21,7 +21,7 @@ public class Program {
             if (flag == 0)
                 cnt++;
         }
-        System.out.println("Count of coffee - request - " + cnt);
+        System.out.println("Count of coffee-request - " + cnt);
         scanner.close();
     }
 }

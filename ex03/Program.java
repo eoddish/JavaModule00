@@ -22,7 +22,7 @@ public class Program {
                         min = number;
                 }
                 int pow = weekNumber - 1;
-                int multiply = 1;
+                long multiply = 1;
                 while (pow > 0) {
                     multiply *= 10;
                     pow--;
